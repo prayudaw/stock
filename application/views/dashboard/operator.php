@@ -64,15 +64,13 @@
             </div>
 
             <div class="bg-white p-6 rounded-lg shadow-md">
-                <table id="productTable" class="display w-full text-sm">
+                <table id="productTable" class="display w-full text-sm responsive nowrap">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Nama</th>
-                            <th>Kategori</th>
-                            <th>Harga</th>
-                            <th>Stok</th>
-                            <th>Dibuat Pada</th>
+                            <th>No</th>
+                            <th>No Barcode</th>
+                            <th>Kd Buku</th>
+                            <th>Operator</th>
                         </tr>
                     </thead>
                 </table>
@@ -90,20 +88,38 @@
 <script>
 $(document).ready(function() {
     // Inisialisasi Datepicker
-    $('#start_date').datepicker({
-        dateFormat: "yy-mm-dd",
-        onSelect: function(selectedDate) {
-            $('#end_date').datepicker('option', 'minDate', selectedDate);
-        }
-    });
-    $('#end_date').datepicker({
-        dateFormat: "yy-mm-dd",
-        onSelect: function(selectedDate) {
-            $('#start_date').datepicker('option', 'maxDate', selectedDate);
-        }
-    });
+    // $('#start_date').datepicker({
+    //     dateFormat: "yy-mm-dd",
+    //     onSelect: function(selectedDate) {
+    //         $('#end_date').datepicker('option', 'minDate', selectedDate);
+    //     }
+    // });
+    // $('#end_date').datepicker({
+    //     dateFormat: "yy-mm-dd",
+    //     onSelect: function(selectedDate) {
+    //         $('#start_date').datepicker('option', 'maxDate', selectedDate);
+    //     }
+    // });
 
-    var productTable = $('#productTable').DataTable();
+    var productTable = $('#productTable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "ajax": {
+            "url": "<?php echo site_url(INDEX_URL . 'dashboard/stock/get_operator_stock_data'); ?>",
+            "type": "POST",
+            "data": function(d) {
+                // Kirim data filter ke server, termasuk tanggal
+                d.filters = {
+                    name: $('#name').val(),
+                    // category: $('#category').val(),
+                    // min_price: $('#min_price').val(),
+                    // max_price: $('#max_price').val(),
+                    // start_date: $('#start_date').val(), // Tambahkan ini
+                    // end_date: $('#end_date').val() // Tambahkan ini
+                };
+            }
+        },
+    });
 
     // Event listener untuk tombol filter
     $('#filterButton').click(function() {

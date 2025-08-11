@@ -85,4 +85,6 @@ defined('EXIT__AUTO_MIN')      or define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      or define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 
-defined('INDEX_URL', 'index.php/');
+// defined(INDEX_URL, 'index.php/');
+
+define('INDEX_URL', 'index.php/');

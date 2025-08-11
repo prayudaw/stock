@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dashboard Admin Font Awesome</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+			integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQoHi4g-HCH7T7ZJz5e5c5tKqB3e7w2E7tE1lU5Kz6T5L6lQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+	</head>
+	<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+		<div class="flex h-screen overflow-hidden">
+			<aside
+				id="sidebar"
+				class="fixed z-50 lg:relative lg:flex h-screen w-64 bg-gray-800 text-white flex-col transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out"
+			>
+				<div class="p-6 border-b border-gray-700">
+					<div class="flex items-center space-x-2 text-white">
+						<i class="fa-solid fa-gears text-3xl"></i>
+						<h1 class="text-2xl font-bold">Dashku</h1>
+					</div>
+				</div>
+				<nav class="flex-1 px-4 py-6">
+					<a
+						href="#"
+						class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 hover:text-white"
+					>
+						<div class="flex items-center">
+							<i class="fa-solid fa-house-chimney h-5 w-5 mr-3"></i>
+							<span>Beranda</span>
+						</div>
+					</a>
+					<a
+						href="#"
+						class="block py-2.5 px-4 rounded mt-2 transition duration-200 hover:bg-gray-700 hover:text-white"
+					>
+						<div class="flex items-center">
+							<i class="fa-solid fa-chart-line h-5 w-5 mr-3"></i>
+							<span>Analitik</span>
+						</div>
+					</a>
+					<a
+						href="#"
+						class="block py-2.5 px-4 rounded mt-2 transition duration-200 hover:bg-gray-700 hover:text-white"
+					>
+						<div class="flex items-center">
+							<i class="fa-solid fa-user h-5 w-5 mr-3"></i>
+							<span>Pengguna</span>
+						</div>
+					</a>
+					<a
+						href="#"
+						class="block py-2.5 px-4 rounded mt-2 transition duration-200 hover:bg-gray-700 hover:text-white"
+					>
+						<div class="flex items-center">
+							<i class="fa-solid fa-gear h-5 w-5 mr-3"></i>
+							<span>Pengaturan</span>
+						</div>
+					</a>
+				</nav>
+				<div class="p-4 border-t border-gray-700 mt-auto">
+					<a
+						href="#"
+						class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 hover:text-white"
+					>
+						<div class="flex items-center">
+							<i class="fa-solid fa-right-from-bracket h-5 w-5 mr-3"></i>
+							<span>Keluar</span>
+						</div>
+					</a>
+				</div>
+			</aside>
+
+			<div
+				id="backdrop"
+				class="fixed inset-0 bg-black opacity-0 transition-opacity duration-300 ease-in-out z-40 hidden lg:hidden"
+			></div>
+
+			<main class="flex-1 flex flex-col overflow-hidden">
+				<header
+					class="bg-white shadow-md p-6 flex justify-between items-center"
+				>
+					<button
+						id="mobile-menu-button"
+						class="lg:hidden text-gray-800 focus:outline-none"
+					>
+						<i class="fa-solid fa-bars h-6 w-6"></i>
+					</button>
+					<h2 class="text-2xl font-bold text-gray-800">Halo, Admin!</h2>
+					<div class="flex items-center">
+						<span class="text-gray-600 hidden md:block mr-4"
+							>Selamat Datang</span
+						>
+						<a
+							href="#"
+							class="flex items-center text-gray-800 hover:text-blue-500"
+						>
+							<img
+								src="https://i.pravatar.cc/300"
+								alt="Avatar"
+								class="w-8 h-8 rounded-full mr-2"
+							/>
+							<span class="hidden sm:block">John Doe</span>
+						</a>
+					</div>
+				</header>
+
+				<div class="p-6 flex-1 overflow-y-auto">
+					<div
+						class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"
+					>
+						<div class="bg-white shadow-lg rounded-lg p-6">
+							<p class="text-gray-500">Total Pengguna</p>
+							<p class="text-3xl font-bold mt-2 text-gray-800">1.234</p>
+						</div>
+						<div class="bg-white shadow-lg rounded-lg p-6">
+							<p class="text-gray-500">Pendapatan Hari Ini</p>
+							<p class="text-3xl font-bold mt-2 text-gray-800">Rp 5.678.000</p>
+						</div>
+						<div class="bg-white shadow-lg rounded-lg p-6">
+							<p class="text-gray-500">Pesanan Baru</p>
+							<p class="text-3xl font-bold mt-2 text-gray-800">56</p>
+						</div>
+						<div class="bg-white shadow-lg rounded-lg p-6">
+							<p class="text-gray-500">Kunjungan</p>
+							<p class="text-3xl font-bold mt-2 text-gray-800">89.101</p>
+						</div>
+					</div>
+
+					<div class="bg-white shadow-lg rounded-lg p-6 mb-6">
+						<h3 class="text-xl font-bold mb-4">Daftar Pengguna Terbaru</h3>
+						<div class="overflow-x-auto">
+							<table class="min-w-full table-auto">
+								<thead>
+									<tr
+										class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal"
+									>
+										<th class="py-3 px-6 text-left">Nama</th>
+										<th class="py-3 px-6 text-left">Email</th>
+										<th class="py-3 px-6 text-left">Status</th>
+									</tr>
+								</thead>
+								<tbody class="text-gray-600 text-sm font-light">
+									<tr class="border-b border-gray-200 hover:bg-gray-100">
+										<td class="py-3 px-6 text-left whitespace-nowrap">
+											John Doe
+										</td>
+										<td class="py-3 px-6 text-left">john.doe@email.com</td>
+										<td class="py-3 px-6 text-left">
+											<span
+												class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs"
+												>Aktif</span
+											>
+										</td>
+									</tr>
+									<tr class="border-b border-gray-200 hover:bg-gray-100">
+										<td class="py-3 px-6 text-left whitespace-nowrap">
+											Jane Smith
+										</td>
+										<td class="py-3 px-6 text-left">jane.smith@email.com</td>
+										<td class="py-3 px-6 text-left">
+											<span
+												class="bg-yellow-200 text-yellow-600 py-1 px-3 rounded-full text-xs"
+												>Menunggu</span
+											>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<div class="bg-white shadow-lg rounded-lg p-6">
+						<h3 class="text-xl font-bold mb-4">Tambah Pengguna Baru</h3>
+						<form id="addUserForm" action="#" method="POST" class="space-y-4">
+							<div>
+								<label
+									for="name"
+									class="block text-sm font-medium text-gray-700"
+									>Nama Lengkap</label
+								>
+								<input
+									type="text"
+									id="name"
+									name="name"
+									class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+									required
+								/>
+							</div>
+							<div>
+								<label
+									for="email"
+									class="block text-sm font-medium text-gray-700"
+									>Email</label
+								>
+								<input
+									type="email"
+									id="email"
+									name="email"
+									class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+									required
+								/>
+							</div>
+							<div>
+								<label
+									for="password"
+									class="block text-sm font-medium text-gray-700"
+									>Password</label
+								>
+								<input
+									type="password"
+									id="password"
+									name="password"
+									class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+									minlength="8"
+									required
+								/>
+								<p id="password-error" class="text-sm text-red-500 mt-1 hidden">
+									Password harus memiliki minimal 8 karakter.
+								</p>
+							</div>
+							<div
+								id="form-message"
+								class="hidden p-3 rounded-md text-sm"
+							></div>
+							<div>
+								<button
+									type="submit"
+									class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+								>
+									Tambah Pengguna
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<script>
+			// JS untuk sidebar
+			const sidebar = document.getElementById("sidebar");
+			const menuButton = document.getElementById("mobile-menu-button");
+			const backdrop = document.getElementById("backdrop");
+
+			menuButton.addEventListener("click", () => {
+				sidebar.classList.toggle("-translate-x-full");
+				backdrop.classList.toggle("hidden");
+				backdrop.classList.toggle("opacity-0");
+				backdrop.classList.toggle("opacity-50");
+			});
+
+			backdrop.addEventListener("click", () => {
+				sidebar.classList.add("-translate-x-full");
+				backdrop.classList.add("hidden");
+				backdrop.classList.add("opacity-0");
+				backdrop.classList.remove("opacity-50");
+			});
+
+			// JS untuk form validation
+			const form = document.getElementById("addUserForm");
+			const passwordInput = document.getElementById("password");
+			const passwordError = document.getElementById("password-error");
+			const formMessage = document.getElementById("form-message");
+
+			form.addEventListener("submit", function (event) {
+				// Validasi custom dengan JavaScript
+				if (passwordInput.value.length < 8) {
+					event.preventDefault(); // Mencegah form submit
+					passwordError.classList.remove("hidden");
+					formMessage.classList.remove("bg-green-100", "text-green-800");
+					formMessage.classList.add("bg-red-100", "text-red-800", "block");
+					formMessage.textContent =
+						"Form gagal dikirim. Periksa kembali data Anda.";
+				} else {
+					// Jika validasi sukses (untuk demo)
+					// Di sini Anda bisa mengirim data ke server
+					event.preventDefault(); // Mencegah form submit
+					passwordError.classList.add("hidden");
+					formMessage.classList.remove("bg-red-100", "text-red-800");
+					formMessage.classList.add("bg-green-100", "text-green-800", "block");
+					formMessage.textContent =
+						"Form berhasil dikirim! Data akan diproses.";
+					form.reset(); // Mengosongkan form
+				}
+			});
+		</script>
+	</body>
+</html>

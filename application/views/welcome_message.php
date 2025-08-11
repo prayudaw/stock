@@ -1,100 +1,168 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="id">
+
 <head>
-	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
-
-	<style type="text/css">
-
-	::selection { background-color: #E13300; color: white; }
-	::-moz-selection { background-color: #E13300; color: white; }
-
-	body {
-		background-color: #fff;
-		margin: 40px;
-		font: 13px/20px normal Helvetica, Arial, sans-serif;
-		color: #4F5155;
-	}
-
-	a {
-		color: #003399;
-		background-color: transparent;
-		font-weight: normal;
-		text-decoration: none;
-	}
-
-	a:hover {
-		color: #97310e;
-	}
-
-	h1 {
-		color: #444;
-		background-color: transparent;
-		border-bottom: 1px solid #D0D0D0;
-		font-size: 19px;
-		font-weight: normal;
-		margin: 0 0 14px 0;
-		padding: 14px 15px 10px 15px;
-	}
-
-	code {
-		font-family: Consolas, Monaco, Courier New, Courier, monospace;
-		font-size: 12px;
-		background-color: #f9f9f9;
-		border: 1px solid #D0D0D0;
-		color: #002166;
-		display: block;
-		margin: 14px 0 14px 0;
-		padding: 12px 10px 12px 10px;
-	}
-
-	#body {
-		margin: 0 15px 0 15px;
-		min-height: 96px;
-	}
-
-	p {
-		margin: 0 0 10px;
-		padding:0;
-	}
-
-	p.footer {
-		text-align: right;
-		font-size: 11px;
-		border-top: 1px solid #D0D0D0;
-		line-height: 32px;
-		padding: 0 10px 0 10px;
-		margin: 20px 0 0 0;
-	}
-
-	#container {
-		margin: 10px;
-		border: 1px solid #D0D0D0;
-		box-shadow: 0 0 8px #D0D0D0;
-	}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin Font Awesome</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
-<body>
 
-<div id="container">
-	<h1>Welcome to CodeIgniter!</h1>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
 
-	<div id="body">
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
+    <div class="flex h-screen overflow-hidden">
 
-		<p>If you would like to edit this page you'll find it located at:</p>
-		<code>application/views/welcome_message.php</code>
+        <aside id="sidebar"
+            class="fixed z-50 lg:relative lg:flex h-screen w-64 bg-gray-800 text-white flex-col transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
+            <div class="p-6 border-b border-gray-700">
+                <div class="flex items-center space-x-2 text-white">
+                    <i class="fa-solid fa-gears text-3xl"></i>
+                    <h1 class="text-2xl font-bold">Dashku</h1>
+                </div>
+            </div>
+            <nav class="flex-1 px-4 py-6">
+                <a href="#"
+                    class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 hover:text-white">
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-house-chimney h-5 w-5 mr-3"></i>
+                        <span>Beranda</span>
+                    </div>
+                </a>
+                <a href="#"
+                    class="block py-2.5 px-4 rounded mt-2 transition duration-200 hover:bg-gray-700 hover:text-white">
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-chart-line h-5 w-5 mr-3"></i>
+                        <span>Analitik</span>
+                    </div>
+                </a>
+                <a href="page/form_validation.html"
+                    class="block py-2.5 px-4 rounded mt-2 transition duration-200 hover:bg-gray-700 hover:text-white">
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-chart-line h-5 w-5 mr-3"></i>
+                        <span>Form Validation</span>
+                    </div>
+                </a>
+                <a href="#"
+                    class="block py-2.5 px-4 rounded mt-2 transition duration-200 hover:bg-gray-700 hover:text-white">
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-user h-5 w-5 mr-3"></i>
+                        <span>Pengguna</span>
+                    </div>
+                </a>
+                <a href="#"
+                    class="block py-2.5 px-4 rounded mt-2 transition duration-200 hover:bg-gray-700 hover:text-white">
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-gear h-5 w-5 mr-3"></i>
+                        <span>Pengaturan</span>
+                    </div>
+                </a>
+            </nav>
+            <div class="p-4 border-t border-gray-700 mt-auto">
+                <a href="#"
+                    class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 hover:text-white">
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-right-from-bracket h-5 w-5 mr-3"></i>
+                        <span>Keluar</span>
+                    </div>
+                </a>
+            </div>
+        </aside>
 
-		<p>The corresponding controller for this page is found at:</p>
-		<code>application/controllers/Welcome.php</code>
+        <div id="backdrop"
+            class="fixed inset-0 bg-black opacity-0 transition-opacity duration-300 ease-in-out z-40 hidden lg:hidden">
+        </div>
 
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="userguide3/">User Guide</a>.</p>
-	</div>
+        <main class="flex-1 flex flex-col overflow-hidden">
+            <header class="bg-white shadow-md p-6 flex justify-between items-center">
+                <button id="mobile-menu-button" class="lg:hidden text-gray-800 focus:outline-none">
+                    <i class="fa-solid fa-bars h-6 w-6"></i>
+                </button>
+                <h2 class="text-2xl font-bold text-gray-800">Halo, Admin!</h2>
+                <div class="flex items-center">
+                    <span class="text-gray-600 hidden md:block mr-4">Selamat Datang</span>
+                    <a href="#" class="flex items-center text-gray-800 hover:text-blue-500">
+                        <img src="https://i.pravatar.cc/300" alt="Avatar" class="w-8 h-8 rounded-full mr-2">
+                        <span class="hidden sm:block">John Doe</span>
+                    </a>
+                </div>
+            </header>
 
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
-</div>
+            <div class="p-6 flex-1 overflow-y-auto">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white shadow-lg rounded-lg p-6">
+                        <p class="text-gray-500">Total Pengguna</p>
+                        <p class="text-3xl font-bold mt-2 text-gray-800">1.234</p>
+                    </div>
+                    <div class="bg-white shadow-lg rounded-lg p-6">
+                        <p class="text-gray-500">Pendapatan Hari Ini</p>
+                        <p class="text-3xl font-bold mt-2 text-gray-800">Rp 5.678.000</p>
+                    </div>
+                    <div class="bg-white shadow-lg rounded-lg p-6">
+                        <p class="text-gray-500">Pesanan Baru</p>
+                        <p class="text-3xl font-bold mt-2 text-gray-800">56</p>
+                    </div>
+                    <div class="bg-white shadow-lg rounded-lg p-6">
+                        <p class="text-gray-500">Kunjungan</p>
+                        <p class="text-3xl font-bold mt-2 text-gray-800">89.101</p>
+                    </div>
+                </div>
 
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">Daftar Pengguna Terbaru</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full table-auto">
+                            <thead>
+                                <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                                    <th class="py-3 px-6 text-left">Nama</th>
+                                    <th class="py-3 px-6 text-left">Email</th>
+                                    <th class="py-3 px-6 text-left">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-600 text-sm font-light">
+                                <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                    <td class="py-3 px-6 text-left whitespace-nowrap">John Doe</td>
+                                    <td class="py-3 px-6 text-left">john.doe@email.com</td>
+                                    <td class="py-3 px-6 text-left">
+                                        <span
+                                            class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Aktif</span>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                    <td class="py-3 px-6 text-left whitespace-nowrap">Jane Smith</td>
+                                    <td class="py-3 px-6 text-left">jane.smith@email.com</td>
+                                    <td class="py-3 px-6 text-left">
+                                        <span
+                                            class="bg-yellow-200 text-yellow-600 py-1 px-3 rounded-full text-xs">Menunggu</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+    const sidebar = document.getElementById('sidebar');
+    const menuButton = document.getElementById('mobile-menu-button');
+    const backdrop = document.getElementById('backdrop');
+
+    menuButton.addEventListener('click', () => {
+        sidebar.classList.toggle('-translate-x-full');
+        backdrop.classList.toggle('hidden');
+        backdrop.classList.toggle('opacity-0');
+        backdrop.classList.toggle('opacity-50');
+    });
+
+    backdrop.addEventListener('click', () => {
+        sidebar.classList.add('-translate-x-full');
+        backdrop.classList.add('hidden');
+        backdrop.classList.add('opacity-0');
+        backdrop.classList.remove('opacity-50');
+    });
+    </script>
 </body>
+
 </html>

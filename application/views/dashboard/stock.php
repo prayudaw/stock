@@ -1,53 +1,96 @@
 <!-- header -->
 <?php $this->load->view('dashboard/templete/header') ?>
-<!-- end header -->
+<!-- End header -->
 
-<div class="flex h-screen overflow-hidden">
-
-    <div id="backdrop"
-        class="fixed inset-0 bg-black opacity-0 transition-opacity duration-300 ease-in-out z-40 hidden lg:hidden">
-    </div>
-
+<div class="wrapper">
     <!-- Sidebar -->
     <?php $this->load->view('dashboard/templete/sidebar') ?>
     <!-- End Sidebar -->
 
-    <main class="flex-1 flex flex-col overflow-hidden">
-        <!-- Sidebar -->
-        <?php $this->load->view('dashboard/templete/navbar') ?>
-        <!-- End Sidebar -->
+    <div class="main-panel">
+        <div class="main-header">
+            <div class="main-header-logo">
+                <!-- Logo Header -->
+                <div class="logo-header" data-background-color="dark">
 
-
-        <div class="p-6 flex-1 overflow-y-auto">
-            <div class="bg-white shadow-lg rounded-lg p-6 max-w-lg mx-auto mt-10">
-                <h1 class="text-xl font-semibold text-gray-800 mb-4 text-center">SCAN BUKU</h1>
-                <p class="text-sm text-gray-600 mb-6 text-center">Gunakan pemindai atau masukkan nomor barcode
-                    secara manual.</p>
-
-                <form action="#" method="post">
-                    <div class="mb-4">
-                        <label for="barcode" class="block text-gray-700 text-sm font-bold mb-2">Nomor
-                            Barcode</label>
-                        <input type="text" id="barcode" name="barcode"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            placeholder="Arahkan scanner ke sini..." required autofocus>
-                    </div>
-                    <div class="flex items-center justify-center">
-                        <button type="submit"
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                            Proses
+                    <a href="index.html" class="logo">
+                        <img src="<?php echo base_url() ?>assets/img/kaiadmin/logo_light.svg" alt="navbar brand"
+                            class="navbar-brand" height="20">
+                    </a>
+                    <div class="nav-toggle">
+                        <button class="btn btn-toggle toggle-sidebar">
+                            <i class="gg-menu-right"></i>
+                        </button>
+                        <button class="btn btn-toggle sidenav-toggler">
+                            <i class="gg-menu-left"></i>
                         </button>
                     </div>
-                </form>
+                    <button class="topbar-toggler more">
+                        <i class="gg-more-vertical-alt"></i>
+                    </button>
+
+                </div>
+                <!-- End Logo Header -->
+            </div>
+
+            <!-- Navbar Header -->
+            <?php $this->load->view('dashboard/templete/navbar'); ?>
+            <!-- End Navbar -->
+        </div>
+
+        <div class="container">
+            <div class="page-inner">
+                <div class="page-header">
+                    <h3 class="fw-bold mb-3">SCAN STOCK</h3>
+                    <ul class="breadcrumbs mb-3">
+                        <li class="nav-home">
+                            <a href="#">
+                                <i class="icon-home"></i>
+                            </a>
+                        </li>
+                        <li class="separator">
+                            <i class="icon-arrow-right"></i>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">SCAN STOCK</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <!-- <div class="card-header">
+                                <div class="card-title"></div>
+                            </div> -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4 col-lg-12">
+                                        <div class="form-group">
+                                            <label for="scan">Scan Barcode</label>
+                                            <input type="scan" class="form-control" id="scan"
+                                                placeholder="Scan Barcode" />
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="card-action">
+                                <button class="btn btn-success"><i class="fas fa-barcode"></i> Scan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-
-    </main>
+        <!-- footer -->
+        <?php $this->load->view('dashboard/templete/footer') ?>
+        <!-- End footer -->
+    </div>
 </div>
 
 
-
-<!-- Footer -->
-<?php $this->load->view('dashboard/templete/footer') ?>
-<!-- End Footer -->
+<!-- js -->
+<?php $this->load->view('dashboard/templete/js') ?>
+<!-- End js -->

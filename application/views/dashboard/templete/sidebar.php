@@ -1,57 +1,54 @@
-    <aside id="sidebar"
-        class="fixed z-50 lg:relative lg:flex h-screen w-64 bg-gray-800 text-white flex-col transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
-        <div class="p-6 border-b border-gray-700">
-            <div class="flex items-center space-x-2 text-white">
-                <i class="fa-solid fa-qrcode  text-3xl"></i>
-                <h1 class="text-2xl font-bold">StockOpname</h1>
+    <div class="sidebar" data-background-color="dark">
+        <div class="sidebar-logo">
+            <!-- Logo Header -->
+            <div class="logo-header" data-background-color="dark">
+
+                <a href="index.html" class="logo">
+                    <img src="<?php echo base_url() ?>assets/img/kaiadmin/logo_light.svg" alt="navbar brand"
+                        class="navbar-brand" height="20">
+                </a>
+                <div class="nav-toggle">
+                    <button class="btn btn-toggle toggle-sidebar">
+                        <i class="gg-menu-right"></i>
+                    </button>
+                    <button class="btn btn-toggle sidenav-toggler">
+                        <i class="gg-menu-left"></i>
+                    </button>
+                </div>
+                <button class="topbar-toggler more">
+                    <i class="gg-more-vertical-alt"></i>
+                </button>
+
+            </div>
+            <!-- End Logo Header -->
+        </div>
+        <div class="sidebar-wrapper scrollbar scrollbar-inner">
+            <div class="sidebar-content">
+                <ul class="nav nav-secondary">
+                    <li class="nav-item">
+                        <a data-bs-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+                            <i class="fas fa-home"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="<?php echo base_url(INDEX_URL . 'dashboard/stock/scan_stock') ?>">
+                            <i class="fas fa-barcode"></i>
+                            <p>Scan Stock</p>
+                        </a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">
+                            <i class="fas fa-user-alt"></i>
+                            <p>Operator StockOpname</p>
+                        </a>
+
+                    </li>
+
+
+                </ul>
             </div>
         </div>
-        <nav class="flex-1 px-4 py-6">
-            <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 hover:text-white">
-                <div class="flex items-center">
-                    <i class="fa-solid fa-house-chimney h-5 w-5 mr-3"></i>
-                    <span>Beranda</span>
-                </div>
-            </a>
-
-            <a href="<?php echo base_url(INDEX_URL . 'dashboard/stock/scan_stock') ?>"
-                class="block py-2.5 px-4 rounded mt-2 transition duration-200 hover:bg-gray-700 hover:text-white">
-                <div class="flex items-center">
-                    <i class="fa-solid fa-qrcode h-5 w-5 mr-3"></i>
-                    <span>Scan Stock</span>
-                </div>
-            </a>
-            <?php if ($this->session->userdata('role') == 'admin'): ?>
-            <?php endif; ?>
-            <a href="page/form_validation.html"
-                class="block py-2.5 px-4 rounded mt-2 transition duration-200 hover:bg-gray-700 hover:text-white">
-                <div class="flex items-center">
-                    <i class="fa-solid fa-chart-line h-5 w-5 mr-3"></i>
-                    <span>Stock </span>
-                </div>
-            </a>
-            <a href="<?php echo base_url(INDEX_URL . 'dashboard/stock/operator') ?>"
-                class="block py-2.5 px-4 rounded mt-2 transition duration-200 hover:bg-gray-700 hover:text-white">
-                <div class="flex items-center">
-                    <i class="fa-solid fa-user h-5 w-5 mr-3"></i>
-                    <span>Operator Stock Opname</span>
-                </div>
-            </a>
-            <a href="#"
-                class="block py-2.5 px-4 rounded mt-2 transition duration-200 hover:bg-gray-700 hover:text-white">
-                <div class="flex items-center">
-                    <i class="fa-solid fa-gear h-5 w-5 mr-3"></i>
-                    <span>Pengaturan</span>
-                </div>
-            </a>
-        </nav>
-        <div class="p-4 border-t border-gray-700 mt-auto">
-            <a href="<?php echo base_url(INDEX_URL . 'auth/logout') ?>"
-                class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 hover:text-white">
-                <div class="flex items-center">
-                    <i class="fa-solid fa-right-from-bracket h-5 w-5 mr-3"></i>
-                    <span>Keluar</span>
-                </div>
-            </a>
-        </div>
-    </aside>
+    </div>

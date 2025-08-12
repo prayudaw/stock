@@ -40,7 +40,7 @@
 
                     </li>
                     <li class="nav-item">
-                        <a href="#">
+                        <a href="<?php echo base_url(INDEX_URL . 'dashboard/stock/operator') ?>">
                             <i class="fas fa-user-alt"></i>
                             <p>Operator StockOpname</p>
                         </a>

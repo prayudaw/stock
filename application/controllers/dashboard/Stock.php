@@ -8,6 +8,7 @@ class Stock extends CI_Controller
     {
         parent::__construct();
         $this->load->model('operator_stock_model');
+        $this->load->model('stock_model');
         // Cek apakah pengguna sudah login
         // if (!$this->session->userdata('logged_in')) {
         //     redirect(INDEX_URL . 'auth');
@@ -22,6 +23,28 @@ class Stock extends CI_Controller
     public function scan_stock()
     {
         $this->load->view('dashboard/stock');
+    }
+
+    public function proccess_scan()
+    {
+        $barcode = $this->input->post('scan');
+
+        if ($barcode) {
+            // Panggil model untuk mencari produk berdasarkan barcode
+            $check_buku = $this->stock_model->get_item_buku_by_barcode($barcode);
+
+            if ($check_buku) {
+                // Produk ditemukan, berikan respons sukses
+                $response = array(
+                    'status' => 'success',
+                    'message' => 'Buku ditemukan.',
+                    'data' => $check_buku
+                );
+            }
+        }
+
+        // Kirim respons dalam format JSON
+        echo json_encode($response);
     }
 
 

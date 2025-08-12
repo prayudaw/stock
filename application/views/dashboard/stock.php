@@ -76,7 +76,7 @@
                                 </div>
                             </div>
                             <div class="card-action">
-                                <button class="btn btn-success"><i class="fas fa-barcode"></i> Scan</button>
+                                <button class="btn btn-success btn-scan"><i class="fas fa-barcode"></i> Scan</button>
                             </div>
                         </div>
                     </div>
@@ -94,3 +94,92 @@
 <!-- js -->
 <?php $this->load->view('dashboard/templete/js') ?>
 <!-- End js -->
+
+<script>
+    $(document).ready(function() {
+        // Fokuskan input barcode saat halaman dimuat
+        $('#scan').focus();
+
+        // Tangani event keypress pada input barcode
+        $('#scan').keypress(function(e) {
+            if (e.which == 13) { // Jika tombol Enter ditekan
+                e.preventDefault();
+                var scan = $(this).val();
+
+                if (scan == '') {
+                    alert('No Barcode Harus Diisi');
+                    return false;
+
+                }
+
+                if (scan) {
+                    // Kirim data barcode ke controller CodeIgniter
+                    $.ajax({
+                        url: "<?php echo site_url('dashboard/stock/proccess_scan'); ?>",
+                        type: "POST",
+                        data: {
+                            scan: scan
+                        },
+                        dataType: "json",
+                        success: function(response) {
+                            console.log(response);
+                            if (response.status === 'success') {
+                                alert('Buku Valid')
+
+                            } else {
+                                alert('Buku Tidak Valid')
+
+                            }
+                            // // Kosongkan input dan fokus kembali
+                            $('#scan').val('').focus();
+                        },
+                        error: function(xhr, status, error) {
+                            $('#result').html('<div class="alert alert-danger">Terjadi kesalahan pada server.</div>');
+                            $('#barcode').val('').focus();
+                        }
+                    });
+                }
+            }
+        });
+
+        $('.btn-scan').click(function(e) {
+            e.preventDefault();
+            var scan = $("#scan").val();
+
+            if (scan == '') {
+                alert('No Barcode Harus Diisi');
+                return false;
+            }
+
+            if (scan) {
+                // Kirim data barcode ke controller CodeIgniter
+                $.ajax({
+                    url: "<?php echo site_url('dashboard/stock/proccess_scan'); ?>",
+                    type: "POST",
+                    data: {
+                        scan: scan
+                    },
+                    dataType: "json",
+                    success: function(response) {
+                        console.log(response);
+                        if (response.status === 'success') {
+                            alert('Buku Valid')
+
+                        } else {
+                            alert('Buku Tidak Valid')
+
+                        }
+                        // // Kosongkan input dan fokus kembali
+                        $('#scan').val('').focus();
+                    },
+                    error: function(xhr, status, error) {
+                        $('#result').html('<div class="alert alert-danger">Terjadi kesalahan pada server.</div>');
+                        $('#barcode').val('').focus();
+                    }
+                });
+            }
+
+
+        });
+    });
+</script>

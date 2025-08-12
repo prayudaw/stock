@@ -1,135 +1,124 @@
 <!-- header -->
 <?php $this->load->view('dashboard/templete/header') ?>
-<!-- end header -->
+<!-- End header -->
 
-<div class="flex h-screen overflow-hidden">
-
-    <div id="backdrop"
-        class="fixed inset-0 bg-black opacity-0 transition-opacity duration-300 ease-in-out z-40 hidden lg:hidden">
-    </div>
-
+<div class="wrapper">
     <!-- Sidebar -->
     <?php $this->load->view('dashboard/templete/sidebar') ?>
     <!-- End Sidebar -->
 
-    <main class="flex-1 flex flex-col overflow-hidden">
-        <!-- Sidebar -->
-        <?php $this->load->view('dashboard/templete/navbar') ?>
-        <!-- End Sidebar -->
+    <div class="main-panel">
+        <div class="main-header">
+            <div class="main-header-logo">
+                <!-- Logo Header -->
+                <div class="logo-header" data-background-color="dark">
 
-
-        <div class="container mx-auto p-6">
-            <h2 class="text-3xl font-bold mb-6">Daftar Operator Stock Opname</h2>
-
-            <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-                <form id="filterForm">
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <div>
-                            <label for="no_barcode" class="block text-gray-700 text-sm font-bold mb-2">No
-                                Barcode</label>
-                            <input type="text" id="no_barcode" name="no_barcode"
-                                class="shadow border rounded w-full py-2 px-3 text-gray-700" placeholder="no barcode">
-                        </div>
-                        <div>
-                            <label for="no_barcode" class="block text-gray-700 text-sm font-bold mb-2">Nama Operator
-                            </label>
-                            <input type="text" id="operator" name="operator"
-                                class="shadow border rounded w-full py-2 px-3 text-gray-700"
-                                placeholder="nama operator">
-                        </div>
-                        <div>
-                            <label for="start_date" class="block text-gray-700 text-sm font-bold mb-2">Tanggal
-                                Mulai</label>
-                            <input type="text" id="start_date" name="start_date"
-                                class="shadow border rounded w-full py-2 px-3 text-gray-700" placeholder="YYYY-MM-DD">
-                        </div>
-                        <div>
-                            <label for="end_date" class="block text-gray-700 text-sm font-bold mb-2">Tanggal
-                                Selesai</label>
-                            <input type="text" id="end_date" name="end_date"
-                                class="shadow border rounded w-full py-2 px-3 text-gray-700" placeholder="YYYY-MM-DD">
-                        </div>
-                    </div>
-                    <div class="mt-6 text-right">
-                        <button type="button" id="filterButton"
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                            Terapkan Filter
+                    <a href="index.html" class="logo">
+                        <img src="<?php echo base_url() ?>assets/img/kaiadmin/logo_light.svg" alt="navbar brand"
+                            class="navbar-brand" height="20">
+                    </a>
+                    <div class="nav-toggle">
+                        <button class="btn btn-toggle toggle-sidebar">
+                            <i class="gg-menu-right"></i>
                         </button>
-                        <button type="reset" id="resetButton"
-                            class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                            Reset
+                        <button class="btn btn-toggle sidenav-toggler">
+                            <i class="gg-menu-left"></i>
                         </button>
                     </div>
-                </form>
+                    <button class="topbar-toggler more">
+                        <i class="gg-more-vertical-alt"></i>
+                    </button>
+
+                </div>
+                <!-- End Logo Header -->
             </div>
 
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <table id="productTable" class="display w-full text-sm responsive nowrap">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>No Barcode</th>
-                            <th>Kd Buku</th>
-                            <th>Operator</th>
-                        </tr>
-                    </thead>
-                </table>
+            <!-- Navbar Header -->
+            <?php $this->load->view('dashboard/templete/navbar'); ?>
+            <!-- End Navbar -->
+        </div>
+
+        <div class="container">
+            <div class="page-inner">
+                <div class="page-header">
+                    <h3 class="fw-bold mb-3">Operator Stock Opname</h3>
+                    <ul class="breadcrumbs mb-3">
+                        <li class="nav-home">
+                            <a href="#">
+                                <i class="icon-home"></i>
+                            </a>
+                        </li>
+
+                        <li class="separator">
+                            <i class="icon-arrow-right"></i>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">Operator Stock Opname</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <!-- <div class="card-header">
+                                <h4 class="card-title"></h4>
+                            </div> -->
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="operator_table" class="display table table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>No Barcode</th>
+                                                <th>Kd Buku</th>
+                                                <th>Operator</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </main>
+
+        <!-- footer -->
+        <?php $this->load->view('dashboard/templete/footer') ?>
+        <!-- End footer -->
+    </div>
 </div>
 
 
-<!-- Footer -->
-<?php $this->load->view('dashboard/templete/footer') ?>
-<!-- End Footer -->
-
+<!-- js -->
+<?php $this->load->view('dashboard/templete/js') ?>
+<!-- End js -->
 
 <script>
-$(document).ready(function() {
-    // Inisialisasi Datepicker
-    // $('#start_date').datepicker({
-    //     dateFormat: "yy-mm-dd",
-    //     onSelect: function(selectedDate) {
-    //         $('#end_date').datepicker('option', 'minDate', selectedDate);
-    //     }
-    // });
-    // $('#end_date').datepicker({
-    //     dateFormat: "yy-mm-dd",
-    //     onSelect: function(selectedDate) {
-    //         $('#start_date').datepicker('option', 'maxDate', selectedDate);
-    //     }
-    // });
+    $(document).ready(function() {
+        var table = $('#operator_table').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": {
+                "url": "<?php echo site_url(INDEX_URL . 'dashboard/stock/get_operator_stock_data'); ?>",
+                "type": "POST",
+                "data": function(d) {
+                    // Kirim data filter ke server, termasuk tanggal
+                    d.filters = {
+                        // name: $('#name').val(),
+                        // category: $('#category').val(),
+                        // min_price: $('#min_price').val(),
+                        // max_price: $('#max_price').val(),
+                        // start_date: $('#start_date').val(), // Tambahkan ini
+                        // end_date: $('#end_date').val() // Tambahkan ini
+                    };
+                }
+            },
+        });
 
-    var productTable = $('#productTable').DataTable({
-        "processing": true,
-        "serverSide": true,
-        "ajax": {
-            "url": "<?php echo site_url(INDEX_URL . 'dashboard/stock/get_operator_stock_data'); ?>",
-            "type": "POST",
-            "data": function(d) {
-                // Kirim data filter ke server, termasuk tanggal
-                d.filters = {
-                    name: $('#name').val(),
-                    // category: $('#category').val(),
-                    // min_price: $('#min_price').val(),
-                    // max_price: $('#max_price').val(),
-                    // start_date: $('#start_date').val(), // Tambahkan ini
-                    // end_date: $('#end_date').val() // Tambahkan ini
-                };
-            }
-        },
-    });
 
-    // Event listener untuk tombol filter
-    $('#filterButton').click(function() {
-        productTable.ajax.reload();
     });
-
-    // Event listener untuk tombol reset
-    $('#resetButton').click(function() {
-        $('#filterForm')[0].reset();
-        productTable.ajax.reload();
-    });
-});
 </script>

@@ -53,7 +53,15 @@
                             <i class="icon-arrow-right"></i>
                         </li>
                         <li class="nav-item">
-                            <a href="#">Operator Stock Opname</a>
+                            <a href="<?php echo base_url(INDEX_URL . 'dashboard/stock/operator') ?>">Operator Stock
+
+                                Opname</a>
+                        </li>
+                        <li class="separator">
+                            <i class="icon-arrow-right"></i>
+                        </li>
+                        <li class="nav-item">
+                            <a>Operator Detail <?php echo $operator ?></a>
                         </li>
                     </ul>
                 </div>
@@ -69,10 +77,10 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
+                                                <th>Barcode</th>
+                                                <th>Kd Buku</th>
                                                 <th>Operator</th>
-                                                <th>Jumlah Scan</th>
-                                                <th>First</th>
-                                                <th>Last</th>
+                                                <th>Waktu</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -101,12 +109,18 @@
 
 <script>
     $(document).ready(function() {
+
+        var operator = '<?php echo $operator ?>';
         var table = $('#operator_table').DataTable({
             "processing": true,
             "serverSide": true,
             "ajax": {
-                "url": "<?php echo site_url(INDEX_URL . 'dashboard/stock/get_operator_stock_data'); ?>",
+                "url": "<?php echo site_url(INDEX_URL . 'dashboard/stock/get_operator_stock_detail?operator=') ?>" +
+                    operator,
                 "type": "POST",
+                data: {
+                    operator: operator
+                },
                 "data": function(d) {
                     // Kirim data filter ke server, termasuk tanggal
                     d.filters = {

@@ -41,7 +41,7 @@
         <div class="container">
             <div class="page-inner">
                 <div class="page-header">
-                    <h3 class="fw-bold mb-3">Operator Stock Opname</h3>
+                    <h3 class="fw-bold mb-3">List Stock Opname</h3>
                     <ul class="breadcrumbs mb-3">
                         <li class="nav-home">
                             <a href="#">
@@ -53,8 +53,9 @@
                             <i class="icon-arrow-right"></i>
                         </li>
                         <li class="nav-item">
-                            <a href="#">Operator Stock Opname</a>
+                            <a>List Stock</a>
                         </li>
+
                     </ul>
                 </div>
                 <div class="row">
@@ -69,10 +70,10 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
+                                                <th>Barcode</th>
+                                                <th>Kd Buku</th>
                                                 <th>Operator</th>
-                                                <th>Jumlah Scan</th>
-                                                <th>First</th>
-                                                <th>Last</th>
+                                                <th>Waktu</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -105,7 +106,7 @@
             "processing": true,
             "serverSide": true,
             "ajax": {
-                "url": "<?php echo site_url(INDEX_URL . 'dashboard/stock/get_operator_stock_data'); ?>",
+                "url": "<?php echo site_url(INDEX_URL . 'dashboard/stock/get_list_stock') ?>",
                 "type": "POST",
                 "data": function(d) {
                     // Kirim data filter ke server, termasuk tanggal

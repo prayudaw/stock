@@ -52,7 +52,7 @@
                             <i class="icon-arrow-right"></i>
                         </li>
                         <li class="nav-item">
-                            <a href="#">SCAN STOCK</a>
+                            <a href="#">Scan</a>
                         </li>
                     </ul>
                 </div>
@@ -109,9 +109,7 @@
                 if (scan == '') {
                     alert('No Barcode Harus Diisi');
                     return false;
-
                 }
-
                 if (scan) {
                     // Kirim data barcode ke controller CodeIgniter
                     $.ajax({
@@ -134,7 +132,9 @@
                             $('#scan').val('').focus();
                         },
                         error: function(xhr, status, error) {
-                            $('#result').html('<div class="alert alert-danger">Terjadi kesalahan pada server.</div>');
+                            $('#result').html(
+                                '<div class="alert alert-danger">Terjadi kesalahan pada server.</div>'
+                            );
                             $('#barcode').val('').focus();
                         }
                     });
@@ -173,7 +173,9 @@
                         $('#scan').val('').focus();
                     },
                     error: function(xhr, status, error) {
-                        $('#result').html('<div class="alert alert-danger">Terjadi kesalahan pada server.</div>');
+                        $('#result').html(
+                            '<div class="alert alert-danger">Terjadi kesalahan pada server.</div>'
+                        );
                         $('#barcode').val('').focus();
                     }
                 });

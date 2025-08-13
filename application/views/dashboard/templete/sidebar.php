@@ -4,8 +4,13 @@
             <div class="logo-header" data-background-color="dark">
 
                 <a href="index.html" class="logo">
-                    <img src="<?php echo base_url() ?>assets/img/kaiadmin/logo_light.svg" alt="navbar brand"
-                        class="navbar-brand" height="20">
+                    <span style="color: #000;  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;">
+                        <h4><i class="fas fa-camera fa-lg"></i> StockOpname</h4>
+                    </span>
+
                 </a>
                 <div class="nav-toggle">
                     <button class="btn btn-toggle toggle-sidebar">
@@ -26,7 +31,7 @@
             <div class="sidebar-content">
                 <ul class="nav nav-secondary">
                     <li class="nav-item">
-                        <a data-bs-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+                        <a href="<?php echo base_url(INDEX_URL . 'dashboard/home') ?>">
                             <i class="fas fa-home"></i>
                             <p>Dashboard</p>
                         </a>
@@ -46,6 +51,21 @@
                         </a>
 
                     </li>
+                    <li class="nav-item">
+                        <a href="<?php echo base_url(INDEX_URL . 'dashboard/stock/list_stock') ?>">
+                            <i class="fas fa-clipboard-list"></i>
+                            <p>List Stock</p>
+                        </a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo base_url(INDEX_URL . 'dashboard/stock/list_stock') ?>">
+                            <i class="fas fa-book"></i>
+                            <p>Rekap</p>
+                        </a>
+
+                    </li>
+
 
 
                 </ul>

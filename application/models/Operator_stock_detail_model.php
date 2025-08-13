@@ -1,9 +1,10 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-class Stock_model extends CI_Model
+class Operator_stock_detail_model extends CI_Model
 {
-
     private $table = "stock";
     private $column_order = array('operator', 'barcode', 'kd_buku', 'tgl');
     private $column_search = array('operator', 'barcode', 'kd_buku', 'tgl');
@@ -16,10 +17,12 @@ class Stock_model extends CI_Model
     }
 
 
-    private function _get_datatables_query()
+    private function _get_datatables_query($operator)
     {
 
         $this->db->from($this->table);
+        $this->db->where('operator', $operator);
+
         $i = 0;
         foreach ($this->column_search as $item) // loop kolom 
         {
@@ -64,9 +67,9 @@ class Stock_model extends CI_Model
         }
     }
 
-    function get_datatables()
+    function get_datatables($operator)
     {
-        $this->_get_datatables_query();
+        $this->_get_datatables_query($operator);
         if ($this->input->post('length') != -1)
             $this->db->limit($this->input->post('length'), $this->input->post('start'));
         $query = $this->db->get();
@@ -75,25 +78,19 @@ class Stock_model extends CI_Model
         return $query->result();
     }
 
-    function count_filtered()
+    function count_filtered($operator)
     {
-        $this->_get_datatables_query();
+        $this->_get_datatables_query($operator);
         $query = $this->db->get();
         return $query->num_rows();
     }
 
-    public function count_all()
+    public function count_all($operator)
     {
 
         $this->db->from($this->table);
-        return $this->db->count_all_results();
-    }
+        $this->db->where('operator', $operator);
 
-    // Fungsi untuk mendapatkan data exemplar buku berdasarkan barcode
-    public function get_item_buku_by_barcode($barcode)
-    {
-        $this->db->where('no_barcode', $barcode);
-        $query = $this->db->get('item_buku'); // table item_buku
-        return $query->row_array();
+        return $this->db->count_all_results();
     }
 }

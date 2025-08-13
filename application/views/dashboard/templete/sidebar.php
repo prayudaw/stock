@@ -59,7 +59,7 @@
 
                     </li>
                     <li class="nav-item">
-                        <a href="<?php echo base_url(INDEX_URL . 'dashboard/stock/list_stock') ?>">
+                        <a href="<?php echo base_url(INDEX_URL . 'dashboard/rekap') ?>">
                             <i class="fas fa-book"></i>
                             <p>Rekap</p>
                         </a>

@@ -70,13 +70,17 @@
                                             <input type="scan" class="form-control" id="scan"
                                                 placeholder="Scan Barcode" />
                                         </div>
+                                        <div id="reader" style="width: 100%; display: none;"></div>
 
                                     </div>
 
                                 </div>
                             </div>
                             <div class="card-action">
-                                <button class="btn btn-success btn-scan"><i class="fas fa-barcode"></i> Scan</button>
+                                <button class="btn btn-success btn-process"><i class="fas fa-barcode"></i> Scan</button>
+                                <button class="btn btn-primary" id="btn_scan">
+                                    Scan Barcode dengan Kamera 📷
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -94,7 +98,7 @@
 <!-- js -->
 <?php $this->load->view('dashboard/templete/js') ?>
 <!-- End js -->
-
+<script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 <script>
     $(document).ready(function() {
         // Fokuskan input barcode saat halaman dimuat
@@ -125,7 +129,7 @@
                                 alert('Buku Valid')
 
                             } else {
-                                alert('Buku Tidak Valid')
+                                alert(response.message)
 
                             }
                             // // Kosongkan input dan fokus kembali
@@ -142,7 +146,74 @@
             }
         });
 
-        $('.btn-scan').click(function(e) {
+        // Event listener untuk tombol scan
+        $('#btn_scan').click(function() {
+            // Tampilkan area reader dan sembunyikan tombol
+            $('#reader').show();
+            $(this).hide();
+
+            html5QrcodeScanner = new Html5QrcodeScanner(
+                "reader", {
+                    fps: 10,
+                    qrbox: 220
+                }
+            );
+
+            // Render scanner dengan callback sukses dan error
+            html5QrcodeScanner.render(onScanSuccess, onScanError);
+        });
+
+        // Fungsi yang dipanggil saat barcode berhasil dipindai
+        function onScanSuccess(decodedText) {
+            console.log(`Scan berhasil: ${decodedText}`);
+
+            // Hentikan pemindaian kamera
+            html5QrcodeScanner.stop().then(() => {
+                $('#reader').hide();
+                $('#scan_btn').show();
+            }).catch(err => {
+                console.error("Gagal menghentikan scanner: ", err);
+            });
+
+            // Kirim barcode ke backend
+            //processBarcode(decodedText);
+        }
+
+        // Fungsi yang dipanggil saat ada error (opsional)
+        function onScanError(errorMessage) {
+            alert('tes');
+            // Error ini akan dipanggil terus menerus, jadi tidak perlu ditampilkan
+            // console.warn(`Scan error: ${errorMessage}`);
+        }
+
+
+        function processBarcode(barcode_val) {
+            alert(barcode_val);
+            // if (barcode_val) {
+            //     $.ajax({
+            //         url: "<?php echo site_url('stock_opname/scan'); ?>",
+            //         type: "POST",
+            //         data: {
+            //             barcode: barcode_val
+            //         },
+            //         dataType: "json",
+            //         success: function(response) {
+            //             if (response.status === 'success') {
+            //                 $('#result').html('<div class="alert alert-success">Produk ditemukan: ' + response.data.nama_produk + ' (Stok: ' + response.data.stok + ')</div>');
+            //             } else {
+            //                 $('#result').html('<div class="alert alert-danger">' + response.message + '</div>');
+            //             }
+            //             $('#barcode').val('').focus();
+            //         },
+            //         error: function(xhr, status, error) {
+            //             $('#result').html('<div class="alert alert-danger">Terjadi kesalahan pada server.</div>');
+            //             $('#barcode').val('').focus();
+            //         }
+            //     });
+            // }
+        }
+
+        $('.btn-process').click(function(e) {
             e.preventDefault();
             var scan = $("#scan").val();
 

@@ -107,8 +107,6 @@ class Stock_model extends CI_Model
     public function insert_stock($data)
     {
         $this->db->insert($this->table, $data);
-        echo $this->db->last_query();
-        die();
         return $this->db->insert_id();
     }
 }

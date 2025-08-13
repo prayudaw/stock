@@ -69,25 +69,44 @@ class Stock extends CI_Controller
 
     public function proccess_scan()
     {
-        $barcode = $this->input->post('scan');
+        $barcode = trim($this->input->post('scan'));
 
-        if ($barcode) {
-            // Panggil model untuk mencari produk berdasarkan barcode
-            $check_buku = $this->stock_model->get_item_buku_by_barcode($barcode);
+        $check_stock = $this->stock_model->get_stock_by_barcode($barcode);
 
-            if ($check_buku) {
+        // Panggil model untuk mencari produk berdasarkan barcode
+        $check_buku = $this->stock_model->get_item_buku_by_barcode($barcode);
+
+        if ($check_buku) {
+
+            $check_stock = $this->stock_model->get_stock_by_barcode($barcode);
+            if ($check_stock) {
+                $response = array(
+                    'status' => 'gagal',
+                    'message' => 'Buku Sudah Diproses'
+                );
+            } else {
                 // Produk ditemukan, berikan respons sukses
+                $insert_data = array(
+                    'barcode' => $barcode,
+                    'kd_buku' => $check_buku['kd_buku'],
+                    'tgl' => date('Y-m-d h:i:s'),
+                    'operator' => $this->session->userdata('nama')
+                );
+
+
+                $insert_stock = $this->stock_model->insert_stock($insert_data);
+
                 $response = array(
                     'status' => 'success',
                     'message' => 'Buku ditemukan.',
                     'data' => $check_buku
                 );
-            } else {
-                $response = array(
-                    'status' => 'gagal',
-                    'message' => 'Buku tidak ditemukan.',
-                );
             }
+        } else {
+            $response = array(
+                'status' => 'gagal',
+                'message' => 'Buku tidak ditemukan.',
+            );
         }
 
         // Kirim respons dalam format JSON

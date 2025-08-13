@@ -166,7 +166,7 @@
                             alert('Buku Valid')
 
                         } else {
-                            alert('Buku Tidak Valid')
+                            alert(response.message)
 
                         }
                         // // Kosongkan input dan fokus kembali

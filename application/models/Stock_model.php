@@ -96,4 +96,19 @@ class Stock_model extends CI_Model
         $query = $this->db->get('item_buku'); // table item_buku
         return $query->row_array();
     }
+
+    public function get_stock_by_barcode($barcode)
+    {
+        $this->db->where('barcode', $barcode);
+        $query = $this->db->get($this->table); // table stock
+        return $query->row_array();
+    }
+
+    public function insert_stock($data)
+    {
+        $this->db->insert($this->table, $data);
+        echo $this->db->last_query();
+        die();
+        return $this->db->insert_id();
+    }
 }

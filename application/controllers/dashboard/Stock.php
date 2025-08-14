@@ -147,7 +147,7 @@ class Stock extends CI_Controller
             $row[] = $list_data->mn;
             $row[] = $list_data->mx;
             $row[] = '<div class="form-button-action">
-							<a href="' . site_url("dashboard/stock/detail_operator?operator=") . $list_data->operator . '" data-bs-toggle="tooltip" title="Detail" class="btn btn-link btn-primary btn-lg" data-original-title="Detail">
+							<a href="' . site_url(INDEX_URL . "dashboard/stock/detail_operator?operator=") . $list_data->operator . '" data-bs-toggle="tooltip" title="Detail" class="btn btn-link btn-primary btn-lg" data-original-title="Detail">
 								<i class="fas fa-eye"> Lihat </i>
 							</a>									
 					</div>';

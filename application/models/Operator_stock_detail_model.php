@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 class Operator_stock_detail_model extends CI_Model
 {
-    private $table = "stock";
+    private $table = "stock_v2";
     private $column_order = array('operator', 'barcode', 'kd_buku', 'tgl');
     private $column_search = array('operator', 'barcode', 'kd_buku', 'tgl');
     private $order = array('tgl' => 'desc');

@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Rekap_model extends CI_Model
 {
 
-    private $table = "stock";
+    private $table = "stock_v2";
     private $column_order = array('bc', 'jm');
     // private $column_search = array('operator', 'barcode', 'kd_buku', 'tgl');
     private $order = array('bc' => 'asc');

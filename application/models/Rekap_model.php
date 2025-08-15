@@ -61,6 +61,24 @@ class Rekap_model extends CI_Model
         return $this->db->count_all_results();
     }
 
+
+    public function get_data_scan()
+    {
+        $this->db->from($this->table);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+
+    public function get_total_item_buku()
+    {
+        $this->db->from('item_buku');
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+
+
     public function get_data_scan_by_jns_koleksi($jns_koleksi)
     {
         $this->db->from($this->table);

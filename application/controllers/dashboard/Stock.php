@@ -76,6 +76,7 @@ class Stock extends CI_Controller
         // Panggil model untuk mencari produk berdasarkan barcode
         $check_buku = $this->stock_model->get_item_buku_by_barcode($barcode);
 
+
         if ($check_buku) {
 
             $check_stock = $this->stock_model->get_stock_by_barcode($barcode);
@@ -92,7 +93,6 @@ class Stock extends CI_Controller
                     'tgl' => date('Y-m-d h:i:s'),
                     'operator' => $this->session->userdata('nama')
                 );
-
 
                 $insert_stock = $this->stock_model->insert_stock($insert_data);
 

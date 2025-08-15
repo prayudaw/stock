@@ -92,8 +92,13 @@ class Stock_model extends CI_Model
     // Fungsi untuk mendapatkan data exemplar buku berdasarkan barcode
     public function get_item_buku_by_barcode($barcode)
     {
-        $this->db->where('no_barcode', $barcode);
-        $query = $this->db->get('item_buku'); // table item_buku
+        $this->db->select('item_buku.*,buku.judul');
+        $this->db->from('item_buku');
+        $this->db->join('buku', 'buku.kd_buku = item_buku.kd_buku');
+        $this->db->where('item_buku.no_barcode', $barcode);
+        $query = $this->db->get(); // table item_buku
+        // echo $this->db->last_query();
+        // die();
         return $query->row_array();
     }
 

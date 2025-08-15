@@ -111,7 +111,14 @@
                 var scan = $(this).val();
 
                 if (scan == '') {
-                    alert('No Barcode Harus Diisi');
+                    swal("Maaf", "No Barcode Harus Diisi", {
+                        icon: "error",
+                        buttons: {
+                            confirm: {
+                                className: "btn btn-danger",
+                            },
+                        },
+                    });
                     return false;
                 }
                 if (scan) {
@@ -126,10 +133,30 @@
                         success: function(response) {
                             console.log(response);
                             if (response.status === 'success') {
-                                alert('Buku Valid')
+                                swal({
+                                    title: response.data.judul,
+                                    text: "",
+                                    icon: "success",
+                                    buttons: {
+                                        confirm: {
+                                            text: "Ok",
+                                            value: true,
+                                            visible: true,
+                                            className: "btn btn-success",
+                                            closeModal: true,
+                                        },
+                                    },
+                                });
 
                             } else {
-                                alert(response.message)
+                                swal("Maaf", response.message, {
+                                    icon: "error",
+                                    buttons: {
+                                        confirm: {
+                                            className: "btn btn-danger",
+                                        },
+                                    },
+                                });
 
                             }
                             // // Kosongkan input dan fokus kembali
@@ -218,7 +245,14 @@
             var scan = $("#scan").val();
 
             if (scan == '') {
-                alert('No Barcode Harus Diisi');
+                swal("Maaf", "No Barcode Harus Diisi", {
+                    icon: "error",
+                    buttons: {
+                        confirm: {
+                            className: "btn btn-danger",
+                        },
+                    },
+                });
                 return false;
             }
 
@@ -232,12 +266,31 @@
                     },
                     dataType: "json",
                     success: function(response) {
-                        console.log(response);
                         if (response.status === 'success') {
-                            alert('Buku Valid')
+                            swal({
+                                title: response.data.judul,
+                                text: "",
+                                icon: "success",
+                                buttons: {
+                                    confirm: {
+                                        text: "Ok",
+                                        value: true,
+                                        visible: true,
+                                        className: "btn btn-success",
+                                        closeModal: true,
+                                    },
+                                },
+                            });
 
                         } else {
-                            alert(response.message)
+                            swal("Maaf", response.message, {
+                                icon: "error",
+                                buttons: {
+                                    confirm: {
+                                        className: "btn btn-danger",
+                                    },
+                                },
+                            });
 
                         }
                         // // Kosongkan input dan fokus kembali

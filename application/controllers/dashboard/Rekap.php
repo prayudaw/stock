@@ -55,7 +55,7 @@ class Rekap extends CI_Controller
         $num_item_buku_by_jns_koleksi = $this->rekap_model->get_total_item_buku_by_jns_koleksi($jenis_koleksi);
         $num_transaksi_by_jns_koleksi = $this->rekap_model->get_total_transaksi_by_jns_koleksi($jenis_koleksi);
 
-        $total_valid = $num_data_scan_by_jns_koleksi + $num_transaksi_by_jns_koleksi;
+        $total_valid = $num_data_scan_by_jns_koleksi;
         $n13 = substr((($total_valid * 100) / $num_item_buku_by_jns_koleksi), 0, 4);
 
         echo $total_valid;
